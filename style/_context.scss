@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+.context-menu {
+  position: absolute;
+  min-width: 188px;
+  max-width: 320px;
+  border-radius: 4px;
+  padding: 6px 8px;
+  background-color: var(--background-extreme-dark);
+  box-shadow: var(--elevation-high);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-light-gray);
+  z-index: 6969;
+
+  .item {
+    margin: 2px 0;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    min-height: 32px;
+    cursor: pointer;
+  }
+
+  .item:hover {
+    color: var(--color);
+    background-color: var(--background-context-hover);
+  }
+}

@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border-radius: 5px;
+  margin: 0 16px 24px;
+  padding: 16px;
+  width: calc(100% - 32px);
+  background-color: var(--background-very-dark);
+  position: relative;
+  z-index: 10;
+  user-select: none;
+
+  img {
+    height: 60px;
+    margin-right: 12px;
+    margin-bottom: -8px;
+    align-self: flex-end;
+  }
+
+  span {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+}

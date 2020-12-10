@@ -1,0 +1,240 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+.placeholder {
+  flex: 1;
+}
+
+.welcome {
+  margin: 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px var(--spacer-light) solid;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 171px;
+  user-select: none;
+
+  .channel-icon {
+    width: 68px;
+    height: 68px;
+    margin-top: 16px;
+    border-radius: 50%;
+    background-color: var(--background-accent);
+    background-image: url(https://discord.com/assets/a9847a74a2dac6e2b2958b195a8dad96.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 8px 0;
+    color: var(--color);
+
+    b {
+      font-weight: 600;
+    }
+  }
+
+  div {
+    color: var(--color-light-gray);
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+// noinspection CssInvalidHtmlTagReference
+discord-messages {
+  position: relative;
+  z-index: 5;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 30px;
+  }
+
+  // noinspection CssInvalidHtmlTagReference
+  discord-message {
+    display: flex;
+    position: relative;
+    padding: .125rem 48px .125rem 72px;
+    min-height: 1.375rem;
+
+    &.system {
+      color: var(--color-lighter-gray);
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      height: 30px;
+
+      message-mention {
+        color: var(--color);
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    &.group-start {
+      margin-top: 1.0625em;
+    }
+
+    &.deleted {
+      color: #f04747;
+    }
+
+    &:not(.system).group-start {
+      min-height: 2.75rem;
+
+      .time {
+        display: none;
+      }
+    }
+
+    &:not(.group-start) {
+      message-header, .avatar {
+        display: none;
+      }
+    }
+
+    .avatar {
+      position: absolute;
+      left: 16px;
+      top: 4px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    &.system .icon {
+      padding-top: .25rem;
+      position: absolute;
+      user-select: none;
+      width: 2.5rem;
+      left: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    .time {
+      position: absolute;
+      user-select: none;
+      color: var(--color-gray);
+      height: 1.370rem;
+      line-height: 1.370rem;
+      text-align: right;
+      font-size: 0.6875rem;
+      margin: 0 .25rem;
+      width: 3.5rem;
+      opacity: 0;
+      left: 0;
+    }
+
+    // noinspection CssInvalidHtmlTagReference
+    message-header {
+      display: flex;
+      align-items: center;
+      line-height: 1.375rem;
+      min-height: 1.375rem;
+
+      .name {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.375em;
+        margin-right: .25rem;
+        cursor: pointer;
+        display: inline;
+        color: var(--color);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .date {
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1.375rem;
+      color: var(--color-gray);
+      margin-left: .25rem;
+      display: inline-block;
+    }
+
+    &:hover {
+      background-color: var(--background-hover);
+
+      .time {
+        opacity: 1;
+      }
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    color: var(--color-gray);
+    line-height: 13px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 1.5rem .875rem .5rem 1rem;
+    user-select: none;
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+      background-color: var(--spacer);
+    }
+
+    &:before {
+      margin-right: 4px;
+    }
+
+    &:after {
+      margin-left: 4px;
+    }
+  }
+}
+
+// noinspection CssInvalidHtmlTagReference
+message-header .badge, .user-popout .badge {
+  background: #7289da;
+  color: #fff;
+  height: 15px;
+  font-weight: 500;
+  padding: .072rem .275rem;
+  margin-right: .25rem;
+  margin-top: .075em;
+  border-radius: 3px;
+  font-size: .625rem;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  line-height: 1.3;
+
+  &:empty {
+    display: none;
+  }
+}

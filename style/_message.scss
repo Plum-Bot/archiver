@@ -1,0 +1,109 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+@import 'include';
+
+// noinspection CssInvalidHtmlTagReference
+discord-message {
+  &:not(.system) {
+    // noinspection CssInvalidHtmlTagReference
+    .contents, message-markup {
+      width: 100%;
+    }
+  }
+
+  .spoiler {
+    border-radius: 3px;
+    transition: all .1s ease;
+    background-color: var(--spoiler-revealed);
+
+    &:not(.revealed) {
+      cursor: pointer;
+      background-color: var(--spoiler);
+
+      span {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .emoji {
+    width: 1.375em;
+    height: 1.375em;
+    object-fit: contain;
+    margin-top: 0;
+    margin-bottom: -5px;
+
+    &.jumbo {
+      width: 3rem;
+      height: 3rem;
+      min-height: 3rem;
+    }
+  }
+
+  blockquote {
+    display: flex;
+    margin: 0;
+
+    .side {
+      width: 4px;
+      border-radius: 4px;
+      background-color: #4f545c;
+    }
+
+    .content {
+      padding: 0 8px 0 12px;
+    }
+  }
+
+  // noinspection CssInvalidHtmlTagReference
+  &:not(.system) message-mention {
+    color: #7289da;
+    background-color: rgba(114, 137, 218, .1);
+    transition: background-color 50ms ease-out, color 50ms ease-out;
+    cursor: pointer;
+    padding: 0 2px;
+    font-weight: 500;
+
+    &:hover {
+      color: #fff;
+      background-color: rgba(114, 137, 218, .7);
+    }
+
+    &[data-type='role'] {
+      color: var(--role-color);
+      background-color: var(--role-bg);
+
+      &:hover {
+        color: var(--role-color);
+        background-color: var(--role-bg-h);
+      }
+    }
+  }
+
+  img[data-clickable], video[is='message-gifv'] {
+    cursor: pointer;
+  }
+
+  .codeblock {
+    @include codeblock;
+  }
+
+  code:not(.hljs) {
+    width: auto;
+    height: auto;
+    padding: .2em;
+    margin: -.2em 0;
+    border-radius: 3px;
+    font-size: 85%;
+    font-family: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace;
+    text-indent: 0;
+    border: none;
+    white-space: pre-wrap;
+    background: var(--background-dark);
+    line-height: 1.125rem;
+  }
+}

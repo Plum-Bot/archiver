@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  user-select: none;
+  height: 48px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: var(--elevation);
+  
+  .name {
+    color: var(--color);
+  }
+
+  svg {
+    margin-left: 16px;
+    margin-right: 8px;
+    margin-top: 1px;
+    color: var(--color-gray)
+  }
+
+  .topic, .msgs, .date {
+    margin-left: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--color-light-gray);
+  }
+
+  .topic, .msgs {
+    padding-left: 16px;
+    border-left: 1px var(--spacer) solid;
+  }
+  
+  .topic {
+    flex: 1;
+  }
+
+  // noinspection CssInvalidHtmlTagReference
+  theme-switch {
+    width: 24px;
+    height: 24px;
+    background-image: var(--theme);
+    margin-right: 16px;
+    cursor: pointer;
+  }
+}

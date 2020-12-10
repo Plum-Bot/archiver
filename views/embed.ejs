@@ -1,0 +1,171 @@
+<!--
+  Copyright (c) 2020 Bowser65
+  Licensed under the Open Software License version 3.0
+-->
+<% if (embed.provider && embed.provider.name === 'Spotify') { %>
+    <div class='spotify'>
+        <% const url = new URL(embed.url).pathname %>
+        <!--suppress HtmlDeprecatedAttribute-->
+        <iframe src='https://open.spotify.com/embed<%= url %>' frameborder='0'
+                style='width: 400px; height: <%= url.startsWith('/track/') ? 80 : 300 %>px;'></iframe>
+    </div>
+<% } else { %>
+    <% if ((embed.thumbnail || embed.video) && (embed.type === 'gifv' || (embed.type !== 'rich' && !embed.author && !embed.title))) { %>
+        <% if (embed.video) { %>
+            <!--suppress CheckTagEmptyBody HtmlUnknownAttribute-->
+            <video class='video' src='<%= embed.video.proxy_url || embed.video.url %>'
+                    <%- embed.type === 'gifv' ? 'autoplay muted loop is="message-gifv"' : 'controls disablePictureInPicture' %>
+                   data-url='<%= embed.url || '' %>' controlsList='nodownload'
+                   data-width='<%= embed.video.width %>' data-height='<%= embed.video.height %>'
+                   style='max-width: <%= embed.video.displayMaxWidth %>'></video>
+        <% } else { %>
+            <%
+                const url = new URL(embed.thumbnail.proxy_url || embed.thumbnail.url)
+                url.searchParams.append('width', parseInt(embed.thumbnail.displayMaxWidth).toString())
+                url.searchParams.append('height', parseInt(embed.thumbnail.displayMaxHeight).toString())
+            %>
+            <img is='message-image' data-clickable src='<%= url.href %>' alt='' class='image'
+                 data-width='<%= embed.thumbnail.width %>' data-height='<%= embed.thumbnail.height %>'
+                 data-url='<%= embed.thumbnail.url %>' style='max-width: <%= embed.thumbnail.displayMaxWidth %>'/>
+        <% } %>
+    <% } else { %>
+        <div class='embed'
+             style='max-width: <%= embed.displayMaxWidth %>;<% if (embed.color) { %> border-color: <%= markdown.int2rgba(embed.color) %><% } %>'>
+            <div class='inner'>
+                <div class='content'>
+                    <% if (embed.provider) { %>
+                        <% if (embed.provider.url) { %>
+                            <a href='<%= embed.provider.url %>' target='_blank' class='provider'>
+                                <%= embed.provider.name %>
+                            </a>
+                        <% } else { %>
+                            <span class='provider'><%= embed.provider.name %></span>
+                        <% } %>
+                    <% } %>
+                    <% if (embed.author) { %>
+                        <div class='author'>
+                            <% if (embed.author.icon_url) { %>
+                                <img is='message-image'
+                                     src='<%= embed.author.proxy_icon_url || embed.author.icon_url %>' alt=''/>
+                            <% } %>
+                            <% if (embed.author.url) { %>
+                                <a href='<%= embed.author.url %>' target='_blank'><%= embed.author.name %></a>
+                            <% } else { %>
+                                <span><%= embed.author.name %></span>
+                            <% } %>
+                        </div>
+                    <% } %>
+                    <% if (embed.title) { %>
+                        <% if (embed.url) { %>
+                            <a href='<%= embed.url %>' target='_blank' class='title'>
+                                <%- markdown.parse(embed.title, data.entities) %>
+                            </a>
+                        <% } else { %>
+                            <div class='title'>
+                                <%- markdown.parse(embed.title, data.entities) %>
+                            </div>
+                        <% } %>
+                    <% } %>
+                    <% if (embed.description && ![ 'image', 'video', 'gifv' ].includes(embed.type)) { %>
+                        <div class='description'>
+                            <%- markdown.parse(embed.description, data.entities, true) %>
+                        </div>
+                    <% } %>
+                    <% if (embed.fields) { %>
+                        <div class='fields'>
+                            <% for (const fields of embed.grouppedFields) { %>
+                                <div class='fields-row row-<%= fields.length %>'>
+                                    <% for (const field of fields) { %>
+                                        <div class='field'>
+                                            <div class='title'><%- markdown.parse(field.name, data.entities) %></div>
+                                            <div class='contents'><%- markdown.parse(field.value, data.entities, true) %></div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% } %>
+                </div>
+                <% if (!embed.video && embed.thumbnail) { %>
+                    <%
+                        const url = new URL(embed.thumbnail.proxy_url || embed.thumbnail.url)
+                        url.searchParams.append('width', '80')
+                        url.searchParams.append('height', '80')
+                    %>
+                    <img is='message-image' data-clickable src='<%= url.href %>'
+                         data-width='<%= embed.thumbnail.width %>' data-height='<%= embed.thumbnail.height %>'
+                         data-url='<%= embed.thumbnail.url %>' alt='' class='thumbnail'/>
+                <% } %>
+            </div>
+            <% if (embed.video) { %>
+                <div class='embed-video' is='message-video' data-url='<%= embed.video.proxy_url || embed.video.url %>'
+                     style='width: <%= embed.video.displayMaxWidth %>; height: <%= embed.video.displayMaxHeight %>'>
+                    <img is='message-image' src='<%= embed.thumbnail.proxy_url || embed.thumbnail.url %>'
+                         style='width: <%= embed.video.displayMaxWidth %>; height: <%= embed.video.displayMaxHeight %>'
+                         alt='Thumbnail' class='thumb'/>
+                    <div class='controls'>
+                        <div class='play'>
+                            <!--suppress HtmlUnknownAttribute-->
+                            <svg width='24' height='24' viewBox='0 0 24 24'>
+                                <polygon fill='currentColor' points='0 0 0 14 11 7' transform='translate(7 5)'/>
+                            </svg>
+                        </div>
+                        <a rel='noreferrer noopener' target='_blank' href='<%= embed.url %>'>
+                            <!--suppress HtmlUnknownAttribute-->
+                            <svg width='24' height='24' viewBox='0 0 24 24'>
+                                <path fill='currentColor' transform='translate(3, 4)'
+                                      d='M16 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4v-2H2V4h14v10h-4v2h4c1.1 0 2-.9 2-2V2a2 2 0 0 0-2-2zM9 6l-4 4h3v6h2v-6h3L9 6z'/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            <% } else if (embed.images) { %>
+                <div class='gallery'>
+                    <% for (const images of embed.grouppedImages) { %>
+                        <div class='column'>
+                            <% for (const image of images) { %>
+                                <%
+                                    const url = new URL(image.proxy_url || image.url)
+                                    url.searchParams.append('width', parseInt(embed.image.displayMaxWidth).toString())
+                                    url.searchParams.append('height', parseInt(embed.image.displayMaxHeight).toString())
+                                %>
+                                <div class='gallery-image'>
+                                    <img is='message-image' src='<%= url.href %>' alt='' data-clickable
+                                         data-width='<%= image.width %>' data-height='<%= image.height %>'
+                                         data-url='<%= image.url %>'/>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% } %>
+                </div>
+            <% } else if (embed.image) { %>
+                <%
+                    const url = new URL(embed.image.proxy_url || embed.image.url)
+                    url.searchParams.append('width', parseInt(embed.image.displayMaxWidth).toString())
+                    url.searchParams.append('height', parseInt(embed.image.displayMaxHeight).toString())
+                %>
+                <img is='message-image' data-clickable src='<%= url.href %>' alt='' class='embed-image'
+                     data-width='<%= embed.image.width %>' data-height='<%= embed.image.height %>'
+                     data-url='<%= embed.image.url %>' style='max-width: <%= embed.image.displayMaxWidth %>'/>
+            <% } %>
+            <% if (embed.footer || embed.timestamp) { %>
+                <div class='footer'>
+                    <% if (embed.footer && embed.footer.icon_url) { %>
+                        <img is='message-image' src='<%= embed.footer.proxy_icon_url || embed.footer.icon_url %>'
+                             alt=''/>
+                    <% } %>
+                    <% if (embed.footer && embed.footer.text) { %>
+                        <%= embed.footer.text %>
+                    <% } %>
+                    <% if (embed.timestamp) { %>
+                        <% if (embed.footer && embed.footer.text) { %>&nbsp•&nbsp;<% } %>
+                        <message-date class='date' data-type='date'
+                                      data-timestamp='<%= new Date(embed.timestamp).getTime() %>'>
+                            <%= new Date(embed.timestamp).toUTCString() %>
+                        </message-date>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+<% } %>

@@ -1,0 +1,101 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+.theme-dark {
+  --background: #36393f;
+  --background-dark: #2f3136;
+  --background-very-dark: #202225;
+  --background-extreme-dark: #18191c;
+  --background-hover: rgba(4, 4, 5, 0.07);
+  --background-context-hover: rgba(79, 84, 92, .16);
+  --background-accent: #4f545c;
+  --color: #fff;
+  --text: #dcddde;
+  --color-light-gray: #b9bbbe;
+  --color-gray: #72767d;
+  --color-lighter-gray: #8e9297;
+  --elevation: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
+  --elevation-high: 0 8px 16px rgba(0, 0, 0, .24);
+  --spacer: hsla(0, 0%, 100%, 0.06);
+  --spacer-light: hsla(0, 0%, 100%, 0.02);
+  --spoiler: #202225;
+  --spoiler-revealed: hsla(0, 0%, 100%, .1);
+  --theme: url(https://discord.com/assets/522c8314225487737f7dd4ead8d4a731.svg);
+  --link: #00b0f4;
+}
+
+.theme-light {
+  --background: #fff;
+  --background-dark: #f2f3f5;
+  --background-very-dark: #e3e5e8;
+  --background-extreme-dark: #fff;
+  --background-hover: rgba(6, 6, 7, 0.02);
+  --background-context-hover: rgba(116, 127, 141, .08);
+  --background-accent: #747f8d;
+  --color: #2e3338;
+  --text: var(--color);
+  --color-light-gray: #4f5660;
+  --color-gray: #747f8d;
+  --color-lighter-gray: #6a7480;
+  --elevation: 0 1px 0 rgba(6, 6, 7, 0.1), 0 1.5px 0 rgba(6, 6, 7, 0.025), 0 2px 0 rgba(6, 6, 7, 0.025);
+  --elevation-high: 0 8px 16px rgba(0, 0, 0, .16);
+  --spacer: rgba(6, 6, 7, 0.08);
+  --spacer-light: #eceeef;
+  --spoiler: #b9bbbe;
+  --spoiler-revealed: rgba(0, 0, 0, .1);
+  --theme: url(https://discord.com/assets/6c8c8654d649bee316b88e2342b6c8fa.svg);
+  --link: #0067e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background-color: var(--background);
+  font-family: Whitney, sans-serif;
+  overflow: hidden;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+main {
+  display: flex;
+  overflow-y: auto;
+  height: calc(100% - 126px);
+  flex-direction: column;
+}
+
+// Scrollbars
+// noinspection CssUnknownProperty
+html {
+  scrollbar-color: var(--background-very-dark) var(--background);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-very-dark);
+  border: 0 var(--background) solid;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}

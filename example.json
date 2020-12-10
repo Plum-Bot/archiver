@@ -1,0 +1,278 @@
+{
+  "entities": {
+    "users": {
+      "311929179186790400": {
+        "avatar": "https://cdn.discordapp.com/avatars/311929179186790400/a_41522c412b77962b6d58b84a50af30f1.gif",
+        "username": "Miky88",
+        "discriminator": "3229",
+        "badge": null
+      },
+      "280399026749440000": {
+        "avatar": "https://cdn.discordapp.com/avatars/280399026749440000/207586c54dde20edaebf6d10add31613.png",
+        "username": "Samplasion",
+        "discriminator": "0325",
+        "badge": null
+      },
+      "726414273990885406": {
+        "avatar": "https://cdn.discordapp.com/avatars/726414273990885406/010301008ce1185ae451fbd5cc602f5d.png",
+        "username": "Plum",
+        "discriminator": "8527",
+        "badge": "BOT"
+      }
+    },
+    "channels": {},
+    "roles": {}
+  },
+  "messages": [
+    {
+      "id": "740585854472421436",
+      "author": "311929179186790400",
+      "time": 1596639827126,
+      "content": "hey",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586512181100627",
+      "author": "280399026749440000",
+      "time": 1596639983936,
+      "content": "bruh",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586520582422539",
+      "author": "280399026749440000",
+      "time": 1596639985939,
+      "content": "lol",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586624139788338",
+      "author": "280399026749440000",
+      "time": 1596640010629,
+      "content": "let's send some messages",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586644872233051",
+      "author": "311929179186790400",
+      "time": 1596640015572,
+      "content": "ciao",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "type": 11,
+      "author": "311929179186790400",
+      "time": 1596640015300
+    },
+    {
+      "id": "740586668771508226",
+      "author": "311929179186790400",
+      "time": 1596640021270,
+      "content": "wewewe pizza pasta mandolino",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586670834974784",
+      "author": "280399026749440000",
+      "time": 1596640021762,
+      "content": "here's an attachment, **with** ||some||\n> Markdown **_that_** *is* **___really cool___** `I think`",
+      "deleted": false,
+      "embeds": [],
+      "attachments": [
+        {
+          "height": 144,
+          "id": "740586663117324398",
+          "filename": "Schermata_2020-08-05_alle_13.55.01.png",
+          "proxy_url": "https://media.discordapp.net/attachments/740585812118470719/740586663117324398/Schermata_2020-08-05_alle_13.55.01.png",
+          "size": 62931,
+          "spoiler": false,
+          "url": "https://cdn.discordapp.com/attachments/740585812118470719/740586663117324398/Schermata_2020-08-05_alle_13.55.01.png",
+          "width": 1172
+        }
+      ]
+    },
+    {
+      "id": "740586677092876310",
+      "author": "280399026749440000",
+      "time": 1596640023254,
+      "content": "in english",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586679634493460",
+      "author": "280399026749440000",
+      "time": 1596640023860,
+      "content": "lol",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586679634493060",
+      "author": "280399026749440000",
+      "time": 1596640031002,
+      "content": "alright let me add Plum",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "type": 7,
+      "author": "726414273990885406",
+      "id": "740586644876296192",
+      "time": 1596640031502
+    },
+    {
+      "id": "740586712106795030",
+      "author": "311929179186790400",
+      "time": 1596640031602,
+      "content": "it's english",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586748492644392",
+      "author": "280399026749440000",
+      "time": 1596640040277,
+      "content": "also I think deleted messages are kept",
+      "deleted": true,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586768121856120",
+      "author": "311929179186790400",
+      "time": 1596640044957,
+      "content": "how do you say pizza pasta and mandolino in english?",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586798740144138",
+      "author": "280399026749440000",
+      "time": 1596640052257,
+      "content": "¯\\\\\\_(ツ)_/¯",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586802506760273",
+      "author": "280399026749440000",
+      "time": 1596640053155,
+      "content": "lol",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586824556216441",
+      "author": "280399026749440000",
+      "time": 1596640058412,
+      "content": "pl.ping",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586825424568401",
+      "author": "726414273990885406",
+      "time": 1596640058619,
+      "content": "",
+      "deleted": false,
+      "embeds": [
+        {
+          "title": "🏓 Ping!",
+          "type": "rich",
+          "description": "Pong!",
+          "timestamp": null,
+          "color": 12861504,
+          "fields": [
+            { "name": "⏱ Ping time", "value": "148 ms", "inline": true },
+            { "name": "💗 Heartbeat", "value": "101 ms", "inline": true }
+          ],
+          "thumbnail": null,
+          "image": null,
+          "author": {
+            "name": "Plum",
+            "url": "https://plum-bot.xyz",
+            "icon_url": "https://cdn.discordapp.com/avatars/726414273990885406/5bc8242af297826e059a72eaa4d0e1dd.webp"
+          },
+          "footer": { "text": "Plum is made by Samplasion#0325" }
+        }
+      ],
+      "attachments": []
+    },
+    {
+      "id": "740586852649664583",
+      "author": "280399026749440000",
+      "time": 1596640065110,
+      "content": "<:ok:732101916904914964>",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586883121414165",
+      "author": "280399026749440000",
+      "time": 1596640072375,
+      "content": "ok I think it's gonna be it",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586883121414304",
+      "author": "280399026749440000",
+      "time": 1596640072700,
+      "content": "join our server https://discord.gg/MDtgmEM",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740586909910433826",
+      "author": "280399026749440000",
+      "time": 1596640078762,
+      "content": "https://tenor.com/view/hahaha-thats-all-folks-looney-tunes-the-end-gif-5945155",
+      "deleted": false,
+      "attachments": []
+    },
+    {
+      "id": "740587275922047007",
+      "author": "280399026749440000",
+      "time": 1596640166026,
+      "content": "pt.backup --raw",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    },
+    {
+      "id": "740587277788381304",
+      "author": "726414273990885406",
+      "time": 1596640166471,
+      "content": "ℹ️ | Backing the messages up! This may take some time...",
+      "deleted": false,
+      "embeds": [],
+      "attachments": []
+    }
+  ],
+  "channel_name": "fake-chat",
+  "channel_topic": "A fake chat used to demonstrate the emulation capabilities of Plum Bot"
+}

@@ -1,0 +1,155 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+.decorated-video {
+  width: 380px;
+  max-height: 540px;
+  position: relative;
+  overflow: hidden;
+
+  .metadata {
+    z-index: 666;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    background-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, .9));
+    padding: 12px;
+    transform: translateY(-100%);
+    transition: transform .15s;
+    color: #fff;
+
+    .details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .name, .size {
+        font-weight: 500;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .name {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      .size {
+        font-size: 12px;
+        line-height: 16px;
+        opacity: .7;
+      }
+    }
+
+    .download {
+      opacity: .6;
+      color: #fff;
+    }
+  }
+
+  video {
+    width: 100%;
+  }
+
+  &:hover .metadata {
+    transform: translateY(0);
+  }
+}
+
+// noinspection CssInvalidHtmlTagReference
+message-attachment {
+  display: block;
+  border: 1px solid;
+  max-width: 520px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+
+  &.audio {
+    max-width: 400px;
+  }
+
+  .data {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 30px;
+      height: 40px;
+      margin-right: 8px;
+      margin-top: 0;
+      flex-shrink: 0;
+    }
+
+    .details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      a {
+        opacity: .85;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 16px;
+      }
+
+      span {
+        font-weight: 300;
+        color: #72767d;
+        margin-right: 8px;
+        line-height: 16px;
+        font-size: 12px;
+      }
+    }
+
+    .preview, .download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4f545c;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+
+  audio {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+// noinspection CssInvalidHtmlTagReference
+.theme-dark message-attachment {
+  border-color: rgba(47, 49, 54, .6);
+  background-color: rgba(47, 49, 54, .3);
+}
+
+// noinspection CssInvalidHtmlTagReference
+.theme-light message-attachment {
+  border-color: #f6f6f7;
+}
+
+audio {
+  height: 32px;
+  width: 380px;
+  border-radius: 3px;
+
+  // noinspection CssInvalidPseudoSelector
+  &::-webkit-media-controls-enclosure {
+    border-radius: 3px;
+  }
+}
+
+.chrome.theme-dark audio {
+  filter: invert(95%);
+}
+
+.firefox.theme-light audio {
+  filter: invert(95%);
+}
