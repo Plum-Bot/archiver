@@ -126,10 +126,10 @@ function generatePage(data) {
                 return resolve(minify(str, {
                     collapseWhitespace: true,
                     removeComments: true
-                }))
+                }));
             } catch (e) {
-                console.log(str);
-                return reject(e);
+                // console.log(str);
+                return resolve(str);
             }
         })
     })
